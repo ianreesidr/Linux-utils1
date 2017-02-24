@@ -11,11 +11,10 @@ exec tclsh "$0" ${1+ "$@"}
 #################################################
 # save this script to /home/mazu on a cascade device
 # make executable with chmod +x mdSort.tcl
-# run mdSort with parameter as text file
-# or against /usr/mazu/status/diskmon.status
+# run ./mdSort.tcl file_containing_output_of_proc/mdstat
 # defaults to reading /proc/mdstat
-# writes sorted output in csv format to
-# /home/mazu/mdStatSort.csv
+# writes sorted output in to
+# /home/mazu/mdStatSort.txt
 ################################################
 #
 proc mdStatSort {Input} {
@@ -33,7 +32,7 @@ proc mdStatSort {Input} {
                 lappend Output $OutputLine
         }
         set Output [lsort -integer -index 1 $Output]
-        set OutputFile "/home/mazu/mdStatSort.csv"
+        set OutputFile "/home/mazu/mdStatSort.txt"
         if {[catch {open $OutputFile w} fileId]} {
                 error $fileId $::errorInfo $::errorCode
         } else {
