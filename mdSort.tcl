@@ -4,11 +4,13 @@ exec tclsh "$0" ${1+ "$@"}
 #instructions above apply to executing on Linux systems
 #do 'dos2unix' if this doesnt work
 ##################################################
-# Script to sort the output of cat /proc/mdstat
+# mdSort.tcl Script to sort the output of cat /proc/mdstat
 # Can make it easier to see which disk is missing
 #################################################
 # comments ian.rees@riverbed.com
 #################################################
+# save this script to /home/mazu on a cascade device
+# make executable with chmod +x mdSort.tcl
 # run mdSort with parameter as text file
 # or against /usr/mazu/status/diskmon.status
 # defaults to reading /proc/mdstat
